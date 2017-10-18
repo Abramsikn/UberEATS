@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html ng-app="Signin">
+<head>
+    <title>Driver Register</title>
+	<meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+
+    <link href="../MyStyles/DRegister.css" rel="stylesheet" />
+
+    <script src="../services.js"></script>
+    <script src="../demos.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="formBox">
+            <form>
+                <strong><center><h2>Driver Registration</h2></center></strong><br />
+                <label>Firstname</label>
+                <input type="text" ng-model="drv_Firstname" placeholder="Firstname" />
+                <label>Lastname</label>
+                <input type="text" ng-model="drv_Lastname" placeholder="Lastname" />
+                <label>Contact</label>
+                <input type="text" ng-model="drv_Contact" placeholder="Contact" />
+                <label>Location</label>
+                <input type="text" ng-model="drv_Location" placeholder="Location" />
+                <label>Vehicle Type</label>
+                <input type="text" ng-model="drv_VehicleType" placeholder="Private, Motorbike, or Bicycle. etc" />
+                <label>Email</label>
+                <input type="email" ng-model="drv_Email" placeholder="Email" />
+                <label>Password</label>
+                <input type="password" ng-model="drv_Password" placeholder="Password" />           
+                <br />
+                <input ng-click="RegisterDriver()" type="button" value="Sign Up">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

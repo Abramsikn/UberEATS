@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html ng-app="Signin">
+<head>
+    <title>Driver Edit Register</title>
+    <meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+
+    <link href="../MyStyles/DRegister.css" rel="stylesheet" />
+
+    <script src="../services.js"></script>
+    <script src="../demos.js"></script>
+
+</head>
+<body ng-controller="DProfileController">
+    <div class="container">
+        <div class="formBox">
+            <form>
+                <label>Driver Id</label>
+                <input type="text" ng-model="drv_Id" placeholder="Firstname" disabled />
+                <label>Firstname</label>
+                <input type="text" ng-model="drv_Firstname" placeholder="Firstname" disabled />
+                <label>Lastname</label>
+                <input type="text" ng-model="drv_Lastname" placeholder="Lastname" disabled />
+                <label>Contact</label>
+                <input type="text" ng-model="drv_Contact" placeholder="Contact" />
+                <label>Location</label>
+                <input type="text" ng-model="drv_Location" placeholder="Location" />
+                <label>Vehicle Type</label>
+                <input type="text" ng-model="drv_VehicleType" placeholder="Private, Motorbike, or Bicycle. etc" />
+                <label>Email</label>
+                <input type="email" ng-model="drv_Email" placeholder="Email" disabled />
+                <label>Password</label>
+                <input type="password" ng-model="drv_Password" placeholder="Password" disabled/>
+                <br />
+                <input ng-click="EditDriver()" type="button" value="Update Profile">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

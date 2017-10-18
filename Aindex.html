@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html ng-app="Signin">
+<head>
+    <title>Admin Index</title>
+    <meta charset="utf-8" />
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+
+    <script src="services.js"></script>
+    <script src="demos.js"></script>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <!-- atlest change the color -->
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">UberEATS</a>
+            </div>
+            <ul class="nav navbar-nav">               
+                <li class="active"><a href="#!RHome">Home</a> </li>
+            </ul>
+            <ul class="nav navbar-nav" ng-hide="!currentUser">
+                <li><a href="#!AAddProduct" class="text-right text-danger">Add Products <span class="glyphicon glyphicon-book"></span></a></li>
+                <li><a href="#!AViewCustomers" class="text-right text-danger">Customers <span class="glyphicon glyphicon-search"></span></a></li>
+                <li><a href="#!AViewRestuarants" class="text-right text-danger">Restuarants <span class="glyphicon glyphicon-search"></span></a></li>
+                <li><a href="#!AViewOrders" class="text-right text-danger">Orders <span class="glyphicon glyphicon-list"></span></a></li>
+                <li><a href="#!CProduct" class="text-right text-danger">Products <span class="glyphicon glyphicon-list"></span></a></li>
+                <li><a href="#!AUploadRestImage" class="text-right text-danger">Cuisine Image <span class="glyphicon glyphicon-upload"></span></a></li>
+                <li><a href="#!AUploadProdImage" class="text-right text-danger">Product Image <span class="glyphicon glyphicon-upload"></span></a></li>
+
+                <!-- <li><a href="#!" class="text-right text-danger">Product Image <span class="glyphicon glyphicon-picture"></span></a></li> -->
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right" ng-show="!currentUser">
+                <!-- <li><a href="#!RRegister" class="text-right text-danger"><span class="glyphicon glyphicon-shopping-cart"></span> Register Restuarant</a></li> -->
+                <li><a href="#!RLogin" class="text-right text-danger"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <footer class="text-center text-danger">
+        <p>
+            <small>&copy; 2017 Itumeleng Abrams</small>
+        </p>
+    </footer>
+
+    <div ng-view>
+
+    </div>
+
+</body>
+</html>

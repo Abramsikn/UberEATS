@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html ng-app="Signin">
+<head>
+    <title>Customer Index</title>
+    <meta charset="utf-8" />
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+
+    <script src="services.js"></script>
+    <script src="demos.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <!-- atlest change the color -->
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">UberEATS</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#!CHome">Home</a> </li>
+                <!--<li><a href="#!CContactus" clas="text-right text-danger">Contact Us  <span class="glyphicon glyphicon-phone"></span></a></li>-->
+                <li><a href="#!CRestuarant" class="text-right text-danger">Restuarants  <span class="glyphicon glyphicon-search"></span></a></li>
+            </ul>
+            <ul class="nav navbar-nav" ng-hide="!currentUser">
+                <li><a href="#!CProfile" class="text-right text-danger">Profile <span class="glyphicon glyphicon-edit"></span></a></li>
+                <li><a href="#!CShoppingCart" class="text-right text-danger">Products <span class="glyphicon glyphicon-list-alt"></span></a></li>
+                <!--<li><a href="#!CProduct" class="text-right text-danger">View Products <span class="glyphicon glyphicon-list"></span></a></li>-->
+                <li><a href="#!CCheckout"> Shopping Cart <span class="glyphicon glyphicon-shopping-cart"></span> ( {{myItems.length}} )</a></li>
+                <!--<li><a href="ViewsCustomer/CShoppingCart.html"><span class="glyphicon glyphicon-shopping-cart">: {{myItems.length}}</span></a></li>-->
+            </ul>
+            <ul class="nav navbar-nav navbar-right" ng-hide="!currentUser">
+                <li><a href="#!index" class="text-right text-danger"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" ng-show="!currentUser">
+                <li><a href="#!CRegister" class="text-right text-danger"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#!CLogin" class="text-right text-danger"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <footer class="text-center text-danger">
+        <p>
+            <small>&copy; 2017 Itumeleng Abrams</small>
+        </p>
+    </footer>
+
+    <div ng-view>
+
+    </div>
+
+</body>
+</html>

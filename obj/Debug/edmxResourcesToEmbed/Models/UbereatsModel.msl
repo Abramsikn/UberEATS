@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbUberEatsModelStoreContainer" CdmEntityContainer="dbUberEatsEntities1">
+    <EntitySetMapping Name="tblAdmins">
+      <EntityTypeMapping TypeName="dbUberEatsModel.tblAdmin">
+        <MappingFragment StoreEntitySet="tblAdmin">
+          <ScalarProperty Name="adm_Password" ColumnName="adm_Password" />
+          <ScalarProperty Name="adm_Username" ColumnName="adm_Username" />
+          <ScalarProperty Name="adm_Email" ColumnName="adm_Email" />
+          <ScalarProperty Name="adm_Contact" ColumnName="adm_Contact" />
+          <ScalarProperty Name="adm_Lastname" ColumnName="adm_Lastname" />
+          <ScalarProperty Name="adm_Firstname" ColumnName="adm_Firstname" />
+          <ScalarProperty Name="adm_Id" ColumnName="adm_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCustomers">
+      <EntityTypeMapping TypeName="dbUberEatsModel.tblCustomer">
+        <MappingFragment StoreEntitySet="tblCustomer">
+          <ScalarProperty Name="cust_Password" ColumnName="cust_Password" />
+          <ScalarProperty Name="cust_Email" ColumnName="cust_Email" />
+          <ScalarProperty Name="cust_Cardnumber" ColumnName="cust_Cardnumber" />
+          <ScalarProperty Name="cust_Contact" ColumnName="cust_Contact" />
+          <ScalarProperty Name="cust_Lastname" ColumnName="cust_Lastname" />
+          <ScalarProperty Name="cust_Firstname" ColumnName="cust_Firstname" />
+          <ScalarProperty Name="cust_Id" ColumnName="cust_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRestuarants">
+      <EntityTypeMapping TypeName="dbUberEatsModel.tblRestuarant">
+        <MappingFragment StoreEntitySet="tblRestuarant">
+          <ScalarProperty Name="rest_Type" ColumnName="rest_Type" />
+          <ScalarProperty Name="rest_Password" ColumnName="rest_Password" />
+          <ScalarProperty Name="rest_Email" ColumnName="rest_Email" />
+          <ScalarProperty Name="rest_Manager" ColumnName="rest_Manager" />
+          <ScalarProperty Name="rest_Contact" ColumnName="rest_Contact" />
+          <ScalarProperty Name="rest_Address" ColumnName="rest_Address" />
+          <ScalarProperty Name="rest_Name" ColumnName="rest_Name" />
+          <ScalarProperty Name="rest_Id" ColumnName="rest_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProducts">
+      <EntityTypeMapping TypeName="dbUberEatsModel.tblProduct">
+        <MappingFragment StoreEntitySet="tblProduct">
+          <ScalarProperty Name="prod_Description" ColumnName="prod_Description" />
+          <ScalarProperty Name="prod_Type" ColumnName="prod_Type" />
+          <ScalarProperty Name="prod_Price" ColumnName="prod_Price" />
+          <ScalarProperty Name="prod_Name" ColumnName="prod_Name" />
+          <ScalarProperty Name="prod_Id" ColumnName="prod_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetRestuInfo" FunctionName="dbUberEatsModel.Store.GetRestuInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbUberEatsModel.GetRestuInfo_Result">
+          <ScalarProperty Name="rest_Name" ColumnName="rest_Name" />
+          <ScalarProperty Name="rest_Address" ColumnName="rest_Address" />
+          <ScalarProperty Name="rest_Type" ColumnName="rest_Type" />
+          <ScalarProperty Name="img_Image" ColumnName="img_Image" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PicRestProcedure" FunctionName="dbUberEatsModel.Store.PicRestProcedure">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbUberEatsModel.PicRestProcedure_Result">
+          <ScalarProperty Name="img_Id" ColumnName="img_Id" />
+          <ScalarProperty Name="img_Image" ColumnName="img_Image" />
+          <ScalarProperty Name="restu_Id" ColumnName="restu_Id" />
+          <ScalarProperty Name="rest_Id" ColumnName="rest_Id" />
+          <ScalarProperty Name="rest_Name" ColumnName="rest_Name" />
+          <ScalarProperty Name="rest_Address" ColumnName="rest_Address" />
+          <ScalarProperty Name="rest_Contact" ColumnName="rest_Contact" />
+          <ScalarProperty Name="rest_Manager" ColumnName="rest_Manager" />
+          <ScalarProperty Name="rest_Email" ColumnName="rest_Email" />
+          <ScalarProperty Name="rest_Password" ColumnName="rest_Password" />
+          <ScalarProperty Name="rest_Type" ColumnName="rest_Type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tblResImages">
+      <EntityTypeMapping TypeName="dbUberEatsModel.tblResImage">
+        <MappingFragment StoreEntitySet="tblResImage">
+          <ScalarProperty Name="restu_Id" ColumnName="restu_Id" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="img_Id" ColumnName="img_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProImages">
+      <EntityTypeMapping TypeName="dbUberEatsModel.tblProImage">
+        <MappingFragment StoreEntitySet="tblProImage">
+          <ScalarProperty Name="produ_Id" ColumnName="produ_Id" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="img_Id" ColumnName="img_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetProduInfo" FunctionName="dbUberEatsModel.Store.GetProduInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbUberEatsModel.GetProduInfo_Result">
+          <ScalarProperty Name="prod_Name" ColumnName="prod_Name" />
+          <ScalarProperty Name="prod_Price" ColumnName="prod_Price" />
+          <ScalarProperty Name="prod_Type" ColumnName="prod_Type" />
+          <ScalarProperty Name="prod_Description" ColumnName="prod_Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PicProdProcedure" FunctionName="dbUberEatsModel.Store.PicProdProcedure">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbUberEatsModel.PicProdProcedure_Result">
+          <ScalarProperty Name="img_Id" ColumnName="img_Id" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="produ_Id" ColumnName="produ_Id" />
+          <ScalarProperty Name="prod_Id" ColumnName="prod_Id" />
+          <ScalarProperty Name="prod_Name" ColumnName="prod_Name" />
+          <ScalarProperty Name="prod_Price" ColumnName="prod_Price" />
+          <ScalarProperty Name="prod_Type" ColumnName="prod_Type" />
+          <ScalarProperty Name="prod_Description" ColumnName="prod_Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tblOrders">
+      <EntityTypeMapping TypeName="dbUberEatsModel.tblOrder">
+        <MappingFragment StoreEntitySet="tblOrder">
+          <ScalarProperty Name="order_DeliveryStatus" ColumnName="order_DeliveryStatus" />
+          <ScalarProperty Name="order_Status" ColumnName="order_Status" />
+          <ScalarProperty Name="cust_Id" ColumnName="cust_Id" />
+          <ScalarProperty Name="order_DeliveryAddress" ColumnName="order_DeliveryAddress" />
+          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+          <ScalarProperty Name="order_Id" ColumnName="order_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPayments">
+      <EntityTypeMapping TypeName="dbUberEatsModel.tblPayment">
+        <MappingFragment StoreEntitySet="tblPayments">
+          <ScalarProperty Name="cust_Id" ColumnName="cust_Id" />
+          <ScalarProperty Name="payment_Date" ColumnName="payment_Date" />
+          <ScalarProperty Name="card_ExpYear" ColumnName="card_ExpYear" />
+          <ScalarProperty Name="card_ExpMonth" ColumnName="card_ExpMonth" />
+          <ScalarProperty Name="card_CCV" ColumnName="card_CCV" />
+          <ScalarProperty Name="card_Name" ColumnName="card_Name" />
+          <ScalarProperty Name="payment_Id" ColumnName="payment_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetAllOrders" FunctionName="dbUberEatsModel.Store.GetAllOrders">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbUberEatsModel.GetAllOrders_Result">
+          <ScalarProperty Name="order_Id" ColumnName="order_Id" />
+          <ScalarProperty Name="prod_Name" ColumnName="prod_Name" />
+          <ScalarProperty Name="prod_Description" ColumnName="prod_Description" />
+          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+          <ScalarProperty Name="order_DeliveryAddress" ColumnName="order_DeliveryAddress" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tblOrder_Product">
+      <EntityTypeMapping TypeName="dbUberEatsModel.tblOrder_Product">
+        <MappingFragment StoreEntitySet="tblOrder_Product">
+          <ScalarProperty Name="ord_Id" ColumnName="ord_Id" />
+          <ScalarProperty Name="pro_Id" ColumnName="pro_Id" />
+          <ScalarProperty Name="op_Id" ColumnName="op_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDrivers">
+      <EntityTypeMapping TypeName="dbUberEatsModel.tblDriver">
+        <MappingFragment StoreEntitySet="tblDriver">
+          <ScalarProperty Name="drv_Password" ColumnName="drv_Password" />
+          <ScalarProperty Name="drv_Email" ColumnName="drv_Email" />
+          <ScalarProperty Name="drv_VehicleType" ColumnName="drv_VehicleType" />
+          <ScalarProperty Name="drv_Location" ColumnName="drv_Location" />
+          <ScalarProperty Name="drv_Contact" ColumnName="drv_Contact" />
+          <ScalarProperty Name="drv_Lastname" ColumnName="drv_Lastname" />
+          <ScalarProperty Name="drv_Firstname" ColumnName="drv_Firstname" />
+          <ScalarProperty Name="drv_Id" ColumnName="drv_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DriverOrders" FunctionName="dbUberEatsModel.Store.DriverOrders">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbUberEatsModel.DriverOrders_Result">
+          <ScalarProperty Name="order_Id" ColumnName="order_Id" />
+          <ScalarProperty Name="Number_of_Items" ColumnName="Number of Items" />
+          <ScalarProperty Name="order_DeliveryAddress" ColumnName="order_DeliveryAddress" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Drivers_Orders" FunctionName="dbUberEatsModel.Store.Drivers_Orders">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbUberEatsModel.Drivers_Orders_Result">
+          <ScalarProperty Name="order_Id" ColumnName="order_Id" />
+          <ScalarProperty Name="cust_Id" ColumnName="cust_Id" />
+          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+          <ScalarProperty Name="order_DeliveryAddress" ColumnName="order_DeliveryAddress" />
+          <ScalarProperty Name="order_Status" ColumnName="order_Status" />
+          <ScalarProperty Name="order_DeliveryStatus" ColumnName="order_DeliveryStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

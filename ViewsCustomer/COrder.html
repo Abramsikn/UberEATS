@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html ng-app="Signin">
+<head>
+    <title>Customer Order</title>
+	<meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+
+    <link href="../MyStyles/COrder.css" rel="stylesheet" />
+
+    <script src="../services.js"></script>
+    <script src="../demos.js"></script>
+
+</head>
+<body ng-controller="COrderController">
+    <div class="container">
+        <div class="right"></div>
+        <div class="left">
+            <div class="formBox">
+                <form>
+                    <label>Firstname</label></p>
+                    <input type="text" ng-model="cust_Firstname" placeholder="Firstname"  disabled/>
+                    <label>Contact</label></p>
+                    <input type="text" ng-model="cust_Contact" placeholder="Contact" disabled/>
+                    <label>Total Price</label></p>
+                    <input type="text" ng-model="totalPrice" placeholder="Total amount due" disabled/>
+                    <label>Delivery Address</label></p>
+                    <input type="text" ng-model="order_DeliveryAddress" placeholder="Delivery Address" />
+                    <input ng-click="AdOrder()" type="button" value="Order">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

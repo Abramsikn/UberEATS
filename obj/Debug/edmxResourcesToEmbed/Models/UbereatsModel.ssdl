@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbUberEatsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblAdmin">
+    <Key>
+      <PropertyRef Name="adm_Id" />
+    </Key>
+    <Property Name="adm_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adm_Firstname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="adm_Lastname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="adm_Contact" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="adm_Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="adm_Username" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="adm_Password" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblCustomer">
+    <Key>
+      <PropertyRef Name="cust_Id" />
+    </Key>
+    <Property Name="cust_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cust_Firstname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cust_Lastname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cust_Contact" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="cust_Cardnumber" Type="bigint" Nullable="false" />
+    <Property Name="cust_Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cust_Password" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblDriver">
+    <Key>
+      <PropertyRef Name="drv_Id" />
+    </Key>
+    <Property Name="drv_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="drv_Firstname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="drv_Lastname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="drv_Contact" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="drv_Location" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="drv_VehicleType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="drv_Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="drv_Password" Type="varchar" MaxLength="18" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblOrder">
+    <Key>
+      <PropertyRef Name="order_Id" />
+    </Key>
+    <Property Name="order_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="totalPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="order_DeliveryAddress" Type="varchar(max)" Nullable="false" />
+    <Property Name="cust_Id" Type="int" Nullable="false" />
+    <Property Name="order_Status" Type="varchar" MaxLength="50" />
+    <Property Name="order_DeliveryStatus" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblOrder_Product">
+    <Key>
+      <PropertyRef Name="op_Id" />
+    </Key>
+    <Property Name="op_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pro_Id" Type="int" Nullable="false" />
+    <Property Name="ord_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblPayments">
+    <Key>
+      <PropertyRef Name="payment_Id" />
+    </Key>
+    <Property Name="payment_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="card_Name" Type="varchar" MaxLength="50" />
+    <Property Name="card_CCV" Type="varchar" MaxLength="50" />
+    <Property Name="card_ExpMonth" Type="varchar" MaxLength="50" />
+    <Property Name="card_ExpYear" Type="varchar" MaxLength="50" />
+    <Property Name="payment_Date" Type="date" />
+    <Property Name="cust_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProduct">
+    <Key>
+      <PropertyRef Name="prod_Id" />
+    </Key>
+    <Property Name="prod_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="prod_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="prod_Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="prod_Type" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="prod_Description" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProImage">
+    <Key>
+      <PropertyRef Name="img_Id" />
+    </Key>
+    <Property Name="img_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Image" Type="varbinary(max)" />
+    <Property Name="produ_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="tblResImage">
+    <Key>
+      <PropertyRef Name="img_Id" />
+    </Key>
+    <Property Name="img_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Image" Type="varbinary(max)" />
+    <Property Name="restu_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="tblRestuarant">
+    <Key>
+      <PropertyRef Name="rest_Id" />
+    </Key>
+    <Property Name="rest_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rest_Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="rest_Address" Type="varchar(max)" Nullable="false" />
+    <Property Name="rest_Contact" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="rest_Manager" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="rest_Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="rest_Password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="rest_Type" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <Function Name="DriverOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Drivers_Orders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetProduInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetRestuInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="PicProdProcedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="PicRestProcedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="dbUberEatsModelStoreContainer">
+    <EntitySet Name="tblAdmin" EntityType="Self.tblAdmin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCustomer" EntityType="Self.tblCustomer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDriver" EntityType="Self.tblDriver" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblOrder" EntityType="Self.tblOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblOrder_Product" EntityType="Self.tblOrder_Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPayments" EntityType="Self.tblPayments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProduct" EntityType="Self.tblProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProImage" EntityType="Self.tblProImage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblResImage" EntityType="Self.tblResImage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblRestuarant" EntityType="Self.tblRestuarant" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

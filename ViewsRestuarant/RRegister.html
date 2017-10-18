@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html ng-app="Signin">
+<head>
+    <title>Restuarant Registration</title>
+    <meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+
+    <link href="../MyStyles/RRegister.css" rel="stylesheet" />
+
+    <script src="../services.js"></script>
+    <script src="../demos.js"></script>
+
+</head>
+<body ng-controller="RRegisterController">
+    <div class="container">
+        <div class="formBox">
+            <input ng-click="" type="button" value="REGISTRATION PAGE">
+            <form>
+                <label>Restuarant Name</label></p>
+                <input type="text" ng-model="rest_Name" placeholder="Restuarant Name" />
+                <label>Restuarant Address</label>
+                <input type="text" ng-model="rest_Address" placeholder="e.g. Cnr Simon Vermooten & Lynnwood Rd. | The Grove Mall, Equestria, Pretoria 0184, South Africa" />
+                <label>Restuarant Contact</label>
+                <input type="text" ng-model="rest_Contact" placeholder="012 000 0000" />
+                <label>Restuarant Manager</label>
+                <input type="text" ng-model="rest_Manager" placeholder="e.g. Mr. T Andrews" />
+                <label>Restuarant Email</label>
+                <input type="email" ng-model="rest_Email" placeholder="Restuarant Email" />
+                <label>Restuarant Password</label>
+                <input type="password" ng-model="rest_Password" placeholder="Restuarant Password" />
+                <label>Restuarant Type</label>
+                <input type="text" ng-model="rest_Type" placeholder="e.g. Pizza, Fast Food, Grill, Seafood, Steakhouse, Cafe, etc" />
+                <input ng-click="RegisterRestuarant()" type="button" value="Register Restuarant">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

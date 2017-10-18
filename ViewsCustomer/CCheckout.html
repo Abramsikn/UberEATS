@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html ng-app="Signin">
+<head>
+    <title>Checkout Page</title>
+	<meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+
+    <script src="../services.js"></script>
+    <script src="../demos.js"></script>
+
+</head>
+<body ng-controller="CCheckoutController">
+    <div class="class" style="background-color:white">
+        <img src="../Images/checkoutiii.png" width="360"  height="250"/>
+        <img src="../Images/checkout.jpg" align="right" width="900" height="250"/>
+    </div>
+
+    <!-- CASH ON DELIVERY OR CREDIT CARD -->
+
+    <div class="container">
+        <div class="well">
+
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>PRICE PER ITEM</th>
+                        <th>QUANTITY</th>
+                    </tr>
+                </thead>
+                <tbody id="ok">
+                    <tr ng-repeat="myItem in selectedItems"> 
+                        <td>{{ myItem.prod_Id }}</td>
+                        <td>{{ myItem.prod_Name }}</td>
+                        <td>{{ myItem.prod_Price | currency : "R"}}</td>
+                        <td>{{ myItem.count}}</td>
+                        <!-- remove button | not showing -->
+                        <!--<td><button ng-click="removeItem($index)" class="btn-sm btn-danger">Remove</button></td>-->
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-left">
+                <strong><span class="pull-left alert alert-success"><h4>TOTAL PRICE: {{ !amountDue ? "0" : amountDue | currency : "R" }}</h4></span></strong>
+                <a href="#!CPayment" class="pull-right alert alert-warning"><h4>Proceed</h4></a>
+                <a href="#!CShoppingCart" class="pull-right alert alert-danger"><h4>Go Back</h4></a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html ng-app="Signin">
+<head>
+    <title>All Orders</title>
+	<meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+
+    <script src="../services.js"></script>
+    <script src="../demos.js"></script>
+
+</head>
+<body ng-controller="RViewAllOrdersController">
+    <div class="col-lg-12">
+        <table class="table table-hover general-table" cellspacing="40" align="center" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ORDER ID</th>
+                    <th>PRODUCT NAME</th>
+                    <th>DELIVERY ADDRESS</th>
+                    <th>CUSTOMER ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="order in all_orders">
+                    <td>{{order.order_Id}}</td>
+                    <td>{{order.prod_Name}}</td>
+                    <td>{{order.order_DeliveryAddress}}</td>
+                    <td>{{order.cust_Id}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

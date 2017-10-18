@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Home Page</title>
+	<meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+
+    <script src="../services.js"></script>
+    <script src="../demos.js"></script>
+
+</head>
+<body ng-controller="AHomeController">
+    <div class="container">
+        <div class="row jumbotron">
+            <center>
+                <h1>THIS IS AN ADMIN</h1>
+                <h1>HOME PAGE</h1>
+            </center>
+        </div>
+    </div>
+    
+    <!--
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">UberEATS</a>
+
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="ViewsAdmin/AHome.html" class="text-right text-danger"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
+                <li class="active"><a href="#!AHome">Home</a> </li>
+            </ul>
+            <ul class="nav navbar-nav" ng-hide="!currentUser">
+                <li><a href="#!AAddProduct" class="text-right text-danger">Add Products <span class="glyphicon glyphicon-book"></span></a></li>
+                <li><a href="#!AViewCustomers" class="text-right text-danger">Customers <span class="glyphicon glyphicon-search"></span></a></li>
+                <li><a href="#!AViewRestuarants" class="text-right text-danger">Restuarants <span class="glyphicon glyphicon-search"></span></a></li>
+                <li><a href="#!CProduct" class="text-right text-danger">Products <span class="glyphicon glyphicon-list"></span></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" ng-show="!currentUser">
+                <li><a href="#!RLogin" class="text-right text-danger"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav> -->
+
+    <div ng-view>
+
+    </div>
+
+
+
+</body>
+</html>

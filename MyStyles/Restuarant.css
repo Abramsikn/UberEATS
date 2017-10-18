@@ -1,0 +1,74 @@
+﻿body {
+    background-size: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.image-list-small {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0;
+    width: 300px;
+    margin: 5px;
+    text-align: center;
+}            
+
+.image-list-small li {
+    margin: 3px;
+    border: 4px solid transparent;
+    display: inline-block;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;         
+}
+.image-list-small li:hover {    
+    border-color: yellow;
+}            
+
+.image-list-small img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+/* Photo */
+
+.image-list-small li > a {
+    display: grid;
+    text-decoration: none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 200px;
+    margin: 0;
+    padding: 0;
+    border: 4px solid #ffffff;
+    outline: 1px solid #d0d0d0;
+    box-shadow: 0 2px 1px #DDD;
+}
+
+.image-list-small .details {
+    margin-top: 13px;
+}
+
+/* Title */
+
+.image-list-small .details h3 {
+    display: block;
+    font-size: 15px;
+    margin: 0 0 3px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.image-list-small .details h3 a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.image-list-small .details .image-author {
+    display: grid;
+    font-family: Candara;
+    color: #000000;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+}

@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html ng-app="Signin">
+<head>
+    <title>Restuarants</title>
+    <meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+
+    <script src="../services.js"></script>
+    <script src="../demos.js"></script>
+
+</head>
+<body ng-controller="AViewRestuarantsController">
+    <div class="col-md-6 col-md-offset-3">
+        <input type="search" placeholder="Search for restuarant, food type, place" align="center" class="form-control input-lg" ng-model="txtFilter" />
+        <br />
+    </div>
+    <div class="col-lg-12">
+        <!--<h2>Restuarants</h2>-->
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Logo</th>                    
+                    <th>Name</th>
+                    <th>Address</th>
+                    <!--<th>Contact</th>
+                    <th>Manager</th>
+                    <th>Email</th> -->
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="rest in Restaurant | filter:txtFilter">
+                    <td>{{rest.rest_Id}}</td>
+                    <td><img style="width:100px; height:100px" ng-src="{{'data:image/jpg;base64,'+rest.Image}}" class="img-rounded" /></td>               
+                    <td>{{rest.rest_Name}}</td>
+                    <td>{{rest.rest_Address}}</td>
+                    <!--<td>{{rest.rest_Contact}}</td>
+                    <td>{{rest.rest_Manager}}</td>
+                    <td>{{rest.rest_Email}}</td>-->
+                    <td>{{rest.rest_Type}}</td>
+                    <td>
+                        <a href="#!CProducts" class="btn btn-sm btn-primary">
+                            View Restuarant
+                            <i class="fa fa-shopping-cart"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!--
+    <form>
+        <table class="table table-hover table-striped" cellspacing="40" align="center" style="width:95%">
+            <thead class="grid-top panel">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Contact</th>
+                    <th>Manager</th>
+                    <th>Email</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="rest in Restaurant">
+                    <td>{{rest.rest_Id}}</td>
+                    <td>{{rest.rest_Name}}</td>
+                    <td>{{rest.rest_Address}}</td>
+                    <td>{{rest.rest_Contact}}</td>
+                    <td>{{rest.rest_Manager}}</td>
+                    <td>{{rest.rest_Email}}</td>
+                    <td>{{rest.rest_Type}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+        -->
+
+</body>
+</html>

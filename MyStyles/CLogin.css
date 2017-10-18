@@ -1,0 +1,101 @@
+﻿body { /* page body */
+    margin: 0;
+    padding: 0;
+    background-image: url('../Images/Background.jpg');
+    background-size: cover;
+    font-family: sans-serif;
+}
+.title
+{
+	text-align: center;
+	padding: 50px 0 20px;
+}
+.title h1
+{
+	margin: 0;
+	padding: 50px;
+	color: #262626;
+	text-transform: uppercase;
+	font-size: 36px;
+}
+.container { 
+    width: 900px;
+    height: 500px;
+    background-image: url('../Images/food.jpg');
+    margin: 150px auto;
+    border: 2px solid rgba(182, 255, 0, 0.66);
+    box-shadow: 0 15px 40px rgba(0,0,0,.5);
+}
+.container .left    
+{
+	float: left;
+	width: 50%;
+	height: 500px;
+	background-size: cover;
+	box-sizing: border-box
+}
+.container .right       
+{
+	float: right;
+	width: 50%;
+	height: 500px;
+	box-sizing: border-box;
+}
+.formBox
+{
+	width: 100%;
+	padding: 80px 40px;
+	box-sizing: border-box;
+	height: 495px;
+	background: #fff;
+}
+.formBox label
+{
+	margin: 0;
+	padding: 0;
+    font-family: Candara;
+    font-size: 25px;
+	font-weight: bold;
+	color: #b29910;
+    height: 20px;   /**/
+}
+.formBox input
+{
+	width: 100%;
+	margin-bottom : 30px;
+}
+.formBox input[type="email"],
+.formBox input[type="password"]
+{ 
+	border: none;
+	border-bottom: 3px solid #a6af13;
+	outline: none;
+	height: 40px;
+}
+.formBox input[type="email"]:focus
+.formBox input[type="password"]:focus
+{
+	border-bottom: 2px solid #262626;
+}
+.formBox input[type="button"]
+{
+	border: none;
+	outline: none;
+	height: 40px;
+	color: #fff;
+    font-family: Consolas;
+    font-size: 30px;
+	background: #3e3d3d;
+	cursor: pointer;
+}
+.formBox input[type="button"]:hover
+{
+	background: #ffd800;
+}
+.formBox a
+{
+	color: #646912;
+	font-size: 20px;
+	font-weight: bold;
+    font-family: Consolas;
+}

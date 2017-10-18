@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <button class="btn btn-primary btn-sm pull-right" data-target="#itemsModal" data-toggle="modal">Login</button>
+                <div class="modal" id="itemsModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" data-dissmiss="modal">&times;</button>
+                                <h4 class="modal-title">Items</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="inputUserName">Username</label>
+                                        <input class="form-control" placeholder="Login username" type="text" id="inputUserName" />
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" data-dissmiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+
+</body>
+</html>

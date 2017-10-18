@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html ng-app="Signin">
+<head>
+    <title>Add Product</title>
+    <meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+
+    <link href="../MyStyles/RAddProduct.css" rel="stylesheet" />
+
+    <script src="../services.js"></script>
+    <script src="../demos.js"></script>
+
+</head>
+<body ng-controller="RAddProductController">
+    <div class="container">
+        <div class="left"></div>
+            <div class="right">
+                <div class="formBox">
+                    <form>
+
+                        <label>Product Name</label></p>
+                        <input type="text" ng-model="prod_Name" placeholder="Product Name" />
+                        <label>Product Price</label></p>
+                        <input type="number" ng-model="prod_Price" placeholder="Product Price" />
+                        <label>Product Type</label></p>
+                        <input type="text" ng-model="prod_Type" placeholder="Product Type" />
+                        <label>Prod Description</label></p>
+                        <input type="text" ng-model="prod_Description" placeholder="Product Description" />
+
+                        <input ng-click="AddProd()" type="button" value="Add Product">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>

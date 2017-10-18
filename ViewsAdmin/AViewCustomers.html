@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html ng-app="Signin">
+<head>
+    <title>Customers</title>
+    <meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+
+    <script src="../services.js"></script>
+    <script src="../demos.js"></script>
+
+</head>
+<body ng-controller="AViewCustomersController">
+    <h2 class="text-center text-danger">All Customers</h2>
+    <form>
+        <table class="table table-hover table-striped" cellspacing="40" align="center" style="width:95%">
+            <thead class="grid-top panel">
+                <tr>
+                    <th>Id</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Contact</th>
+                    <th>Cardnumber</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="cust in Customer">
+                    <td>{{cust.cust_Id}}</td>
+                    <td>{{cust.cust_Firstname}}</td>
+                    <td>{{cust.cust_Lastname}}</td>
+                    <td>{{cust.cust_Contact}}</td>
+                    <td>{{cust.cust_Cardnumber}}</td>
+                    <td>{{cust.cust_Email}}</td>
+                </tr>
+            </tbody>
+            </table>
+        </form>
+
+    </body>
+</html>

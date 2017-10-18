@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html ng-app="Signin">
+<head>
+    <title>Customer Registration</title>
+    <meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+
+    <link href="../MyStyles/CRegister.css" rel="stylesheet" />
+
+    <script src="../services.js"></script>
+    <script src="../demos.js"></script>
+
+</head>
+<body ng-controller="CRegisterController">
+    <div class="container">
+            <div class="formBox">
+                <input ng-click="" type="button" value="REGISTRATION PAGE">
+                <form>
+                    <label>Firstname</label></p>
+                    <input type="text" ng-model="cust_Firstname" placeholder="Firstname" />
+                    <label>Lastname</label></p>
+                    <input type="text" ng-model="cust_Lastname" placeholder="Lastname" />
+                    <label>Contact</label></p>
+                    <input type="text" ng-model="cust_Contact" placeholder="Contact" />
+                    <label>Card Number</label></p>
+                    <input type="number" ng-model="cust_Cardnumber" placeholder="Credit card number" maxlength="16" min="16" />
+                    <label>Email</label></p>
+                    <input type="email" ng-model="cust_Email" placeholder="Email" />
+                    <label>Password</label></p>
+                    <input type="password" ng-model="cust_Password" placeholder="Password" />
+                    <br />
+                    <input ng-click="RegisterUser()" type="button" value="Sign Up">
+                </form>
+            </div>
+        </div>
+</body>
+</html>

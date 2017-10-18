@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html ng-app="Signin">
+<head>
+    <title>Customer Edit Profile</title>
+    <meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+
+    <link href="../MyStyles/CRegister.css" rel="stylesheet" />
+
+    <script src="../services.js"></script>
+    <script src="../demos.js"></script>
+
+</head>
+<body ng-controller="CProfileController">
+    <div class="container">
+        <div class="formBox">
+            <form>
+                <label>Customer Id</label>
+                <input type="text" ng-model="cust_Id" placeholder="Id" disabled />
+                <label>Firstname</label>
+                <input type="text" ng-model="cust_Firstname" placeholder="Enter new firstname" disabled />
+                <label>Lastname</label>
+                <input type="text" ng-model="cust_Lastname" placeholder="Enter new lastname" />
+                <label>Contact</label>
+                <input type="text" ng-model="cust_Contact" placeholder="Enter new contact" />
+                <label>Card Number</label>
+                <input type="number" ng-model="cust_Cardnumber" placeholder="Enter new credit card number" />
+                <label>Email</label>
+                <input type="email" ng-model="cust_Email" placeholder="Email" disabled />
+                <label>Password</label>
+                <input type="password" ng-model="cust_Password" placeholder="Password" disabled />
+                <br />
+                <input ng-click="EditUser()" type="button" value="Update Profile">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

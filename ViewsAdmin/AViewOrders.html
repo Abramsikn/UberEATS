@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html ng-app="Signin">
+<head>
+    <title>Orders</title>
+	<meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+
+    <script src="../services.js"></script>
+    <script src="../demos.js"></script>
+</head>
+<body ng-controller="AViewOrdersController">
+    <h2 class="text-center text-danger">Orders</h2>
+
+    <form>
+        <table class="table table-hover table-striped" cellspacing="40" align="center" style="width:95%">
+            <thead class="grid-top panel">
+                <tr>
+                    <th>ORDER   ID</th>
+                    <th>PRODUCT NAME</th>
+                    <th>DELIVERY    ADDRESS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="ord in order_data">
+                    <td>{{ord.order_Id}}</td>
+                    <td>{{ord.prod_Name}}</td>
+                    <td>{{ord.order_DeliveryAddress}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>

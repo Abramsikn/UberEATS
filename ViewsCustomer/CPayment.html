@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html ng-app="Signin">
+<head>
+    <title>Payment Page</title>
+    <meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+
+    <link href="../MyStyles/CPayment.css" rel="stylesheet" />
+
+    <script src="../services.js"></script>
+    <script src="../demos.js"></script>
+
+</head>
+<body ng-controller="CPaymentController">
+    <div class="container">
+        <div class="right"></div>
+        <div class="left">
+            <div class="formBox">
+                <form>
+                    <label>CUSTOMER CREDIT CARD INFORMATION</label>
+                    <br />
+                    <br />
+                    <input type="text" ng-model="card_Name" placeholder="ABSA" />
+                    <input type="text" ng-model="card_CCV" placeholder="000" maxlength="3" min="3" />
+                    <br />
+                    <label>Card Expiry Date</label>
+                    <br />
+                    <input type="text" ng-model="card_ExpMonth" placeholder="12" maxlength="2" min="2" />
+                    <input type="text" ng-model="card_ExpYear" placeholder="2017" maxlength="4" min="4" />
+                    <label>Payment Date</label><br />
+                    <br />
+                    <input type="date" ng-model="payment_Date" placeholder="Date" />
+                    <br />
+                    <label>CUSTOMER ID</label><br />
+                    <br />
+                    <input type="text" ng-model="cust_Id" placeholder="Id" disabled />
+                    <input ng-click="Pay()" type="button" value="CLICK TO PAY" />
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

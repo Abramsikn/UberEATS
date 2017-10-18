@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cc226d7e322445629aad3d7d90f7fb12" Name="Diagram1" ZoomLevel="71" ShowGrid="true">
+        <EntityTypeShape EntityType="dbUberEatsModel.tblAdmin" Width="2" PointX="0.625" PointY="0.5" />
+        <EntityTypeShape EntityType="dbUberEatsModel.tblCustomer" Width="1.75" PointX="5.25" PointY="0.5" />
+        <EntityTypeShape EntityType="dbUberEatsModel.tblRestuarant" Width="1.875" PointX="3" PointY="0.5" />
+        <EntityTypeShape EntityType="dbUberEatsModel.tblProduct" Width="1.75" PointX="3.125" PointY="3.25" />
+        <EntityTypeShape EntityType="dbUberEatsModel.tblResImage" Width="2" PointX="0.5" PointY="3.25" />
+        <EntityTypeShape EntityType="dbUberEatsModel.tblProImage" Width="1.75" PointX="0.5" PointY="5.125" />
+        <EntityTypeShape EntityType="dbUberEatsModel.tblOrder" Width="1.75" PointX="7.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUberEatsModel.tblPayment" Width="1.75" PointX="5.25" PointY="3.25" />
+        <EntityTypeShape EntityType="dbUberEatsModel.tblOrder_Product" Width="1.75" PointX="3.125" PointY="5.5" />
+        <EntityTypeShape EntityType="dbUberEatsModel.tblDriver" Width="1.75" PointX="7.5" PointY="3.25" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

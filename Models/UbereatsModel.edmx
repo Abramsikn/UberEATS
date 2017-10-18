@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbUberEatsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAdmin">
+          <Key>
+            <PropertyRef Name="adm_Id" />
+          </Key>
+          <Property Name="adm_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adm_Firstname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="adm_Lastname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="adm_Contact" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="adm_Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="adm_Username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="adm_Password" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCustomer">
+          <Key>
+            <PropertyRef Name="cust_Id" />
+          </Key>
+          <Property Name="cust_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cust_Firstname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cust_Lastname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cust_Contact" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="cust_Cardnumber" Type="bigint" Nullable="false" />
+          <Property Name="cust_Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cust_Password" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblDriver">
+          <Key>
+            <PropertyRef Name="drv_Id" />
+          </Key>
+          <Property Name="drv_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="drv_Firstname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="drv_Lastname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="drv_Contact" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="drv_Location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="drv_VehicleType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="drv_Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="drv_Password" Type="varchar" MaxLength="18" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblOrder">
+          <Key>
+            <PropertyRef Name="order_Id" />
+          </Key>
+          <Property Name="order_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="totalPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="order_DeliveryAddress" Type="varchar(max)" Nullable="false" />
+          <Property Name="cust_Id" Type="int" Nullable="false" />
+          <Property Name="order_Status" Type="varchar" MaxLength="50" />
+          <Property Name="order_DeliveryStatus" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblOrder_Product">
+          <Key>
+            <PropertyRef Name="op_Id" />
+          </Key>
+          <Property Name="op_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pro_Id" Type="int" Nullable="false" />
+          <Property Name="ord_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPayments">
+          <Key>
+            <PropertyRef Name="payment_Id" />
+          </Key>
+          <Property Name="payment_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="card_Name" Type="varchar" MaxLength="50" />
+          <Property Name="card_CCV" Type="varchar" MaxLength="50" />
+          <Property Name="card_ExpMonth" Type="varchar" MaxLength="50" />
+          <Property Name="card_ExpYear" Type="varchar" MaxLength="50" />
+          <Property Name="payment_Date" Type="date" />
+          <Property Name="cust_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblProduct">
+          <Key>
+            <PropertyRef Name="prod_Id" />
+          </Key>
+          <Property Name="prod_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="prod_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="prod_Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="prod_Type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="prod_Description" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblProImage">
+          <Key>
+            <PropertyRef Name="img_Id" />
+          </Key>
+          <Property Name="img_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="produ_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="tblResImage">
+          <Key>
+            <PropertyRef Name="img_Id" />
+          </Key>
+          <Property Name="img_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="restu_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="tblRestuarant">
+          <Key>
+            <PropertyRef Name="rest_Id" />
+          </Key>
+          <Property Name="rest_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rest_Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="rest_Address" Type="varchar(max)" Nullable="false" />
+          <Property Name="rest_Contact" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="rest_Manager" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="rest_Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="rest_Password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="rest_Type" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <Function Name="DriverOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Drivers_Orders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetAllOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetProduInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetRestuInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="PicProdProcedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="PicRestProcedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="dbUberEatsModelStoreContainer">
+          <EntitySet Name="tblAdmin" EntityType="Self.tblAdmin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCustomer" EntityType="Self.tblCustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDriver" EntityType="Self.tblDriver" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOrder" EntityType="Self.tblOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOrder_Product" EntityType="Self.tblOrder_Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPayments" EntityType="Self.tblPayments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProduct" EntityType="Self.tblProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProImage" EntityType="Self.tblProImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblResImage" EntityType="Self.tblResImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRestuarant" EntityType="Self.tblRestuarant" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbUberEatsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dbUberEatsEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAdmins" EntityType="dbUberEatsModel.tblAdmin" />
+          <EntitySet Name="tblCustomers" EntityType="dbUberEatsModel.tblCustomer" />
+          <EntitySet Name="tblRestuarants" EntityType="dbUberEatsModel.tblRestuarant" />
+          <EntitySet Name="tblProducts" EntityType="dbUberEatsModel.tblProduct" />
+          <FunctionImport Name="RestuarantsInfo" ReturnType="Collection(dbUberEatsModel.RestuarantsInfo_Result)" />
+          <FunctionImport Name="GetRestuInfo" ReturnType="Collection(dbUberEatsModel.GetRestuInfo_Result)" />
+          <FunctionImport Name="PicRestProcedure" ReturnType="Collection(dbUberEatsModel.PicRestProcedure_Result)" />
+          <EntitySet Name="tblResImages" EntityType="dbUberEatsModel.tblResImage" />
+          <EntitySet Name="tblProImages" EntityType="dbUberEatsModel.tblProImage" />
+          <FunctionImport Name="GetProduInfo" ReturnType="Collection(dbUberEatsModel.GetProduInfo_Result)" />
+          <FunctionImport Name="PicProdProcedure" ReturnType="Collection(dbUberEatsModel.PicProdProcedure_Result)" />
+          <EntitySet Name="tblOrders" EntityType="dbUberEatsModel.tblOrder" />
+          <EntitySet Name="tblPayments" EntityType="dbUberEatsModel.tblPayment" />
+          <FunctionImport Name="GetAllOrders" ReturnType="Collection(dbUberEatsModel.GetAllOrders_Result)" />
+          <EntitySet Name="tblOrder_Product" EntityType="dbUberEatsModel.tblOrder_Product" />
+          <EntitySet Name="tblDrivers" EntityType="dbUberEatsModel.tblDriver" />
+          <FunctionImport Name="DriverOrders" ReturnType="Collection(dbUberEatsModel.DriverOrders_Result)" />
+          <FunctionImport Name="Drivers_Orders" ReturnType="Collection(dbUberEatsModel.Drivers_Orders_Result)" />
+        </EntityContainer>
+        <EntityType Name="tblAdmin">
+          <Key>
+            <PropertyRef Name="adm_Id" />
+          </Key>
+          <Property Name="adm_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adm_Firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adm_Lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adm_Contact" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="adm_Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adm_Username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="adm_Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblCustomer">
+          <Key>
+            <PropertyRef Name="cust_Id" />
+          </Key>
+          <Property Name="cust_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cust_Firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cust_Lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cust_Contact" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cust_Cardnumber" Type="Int64" Nullable="false" />
+          <Property Name="cust_Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cust_Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblRestuarant">
+          <Key>
+            <PropertyRef Name="rest_Id" />
+          </Key>
+          <Property Name="rest_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rest_Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="rest_Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="rest_Contact" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="rest_Manager" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rest_Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rest_Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="rest_Type" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblProduct">
+          <Key>
+            <PropertyRef Name="prod_Id" />
+          </Key>
+          <Property Name="prod_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="prod_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prod_Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="prod_Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prod_Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="RestuarantsInfo_Result">
+          <Property Type="String" Name="prod_Name" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="prod_Price" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="prod_Type" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="prod_Description" Nullable="false" />
+          <Property Type="Binary" Name="img_Data" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetRestuInfo_Result">
+          <Property Type="String" Name="rest_Name" Nullable="false" />
+          <Property Type="String" Name="rest_Address" Nullable="false" />
+          <Property Type="String" Name="rest_Type" Nullable="false" />
+          <Property Type="Binary" Name="img_Image" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="PicRestProcedure_Result">
+          <Property Type="Int32" Name="img_Id" Nullable="false" />
+          <Property Type="Binary" Name="img_Image" Nullable="true" />
+          <Property Type="Int32" Name="restu_Id" Nullable="true" />
+          <Property Type="Int32" Name="rest_Id" Nullable="false" />
+          <Property Type="String" Name="rest_Name" Nullable="false" />
+          <Property Type="String" Name="rest_Address" Nullable="false" />
+          <Property Type="String" Name="rest_Contact" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="rest_Manager" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="rest_Email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="rest_Password" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="rest_Type" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="tblResImage">
+          <Key>
+            <PropertyRef Name="img_Id" />
+          </Key>
+          <Property Name="img_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="restu_Id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblProImage">
+          <Key>
+            <PropertyRef Name="img_Id" />
+          </Key>
+          <Property Name="img_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="produ_Id" Type="Int32" />
+        </EntityType>
+        <ComplexType Name="GetProduInfo_Result">
+          <Property Type="String" Name="prod_Name" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="prod_Price" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="prod_Type" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="prod_Description" Nullable="false" />
+          <Property Type="Binary" Name="Image" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="PicProdProcedure_Result">
+          <Property Type="Int32" Name="img_Id" Nullable="false" />
+          <Property Type="Binary" Name="Image" Nullable="true" />
+          <Property Type="Int32" Name="produ_Id" Nullable="true" />
+          <Property Type="Int32" Name="prod_Id" Nullable="false" />
+          <Property Type="String" Name="prod_Name" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="prod_Price" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="prod_Type" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="prod_Description" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="tblOrder">
+          <Key>
+            <PropertyRef Name="order_Id" />
+          </Key>
+          <Property Name="order_Id" Type="Int32" Nullable="false" />
+          <Property Name="totalPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="order_DeliveryAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="cust_Id" Type="Int32" Nullable="false" />
+          <Property Name="order_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="order_DeliveryStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblPayment">
+          <Key>
+            <PropertyRef Name="payment_Id" />
+          </Key>
+          <Property Name="payment_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="card_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="card_CCV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="card_ExpMonth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="card_ExpYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="payment_Date" Type="DateTime" Precision="0" />
+          <Property Name="cust_Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="GetAllOrders_Result">
+          <Property Type="Int32" Name="order_Id" Nullable="false" />
+          <Property Type="String" Name="prod_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="prod_Description" Nullable="false" />
+          <Property Type="Decimal" Name="totalPrice" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="order_DeliveryAddress" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="tblOrder_Product">
+          <Key>
+            <PropertyRef Name="op_Id" />
+          </Key>
+          <Property Name="op_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pro_Id" Type="Int32" Nullable="false" />
+          <Property Name="ord_Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblDriver">
+          <Key>
+            <PropertyRef Name="drv_Id" />
+          </Key>
+          <Property Name="drv_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="drv_Firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="drv_Lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="drv_Contact" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="drv_Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="drv_VehicleType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="drv_Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="drv_Password" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="DriverOrders_Result">
+          <Property Type="Int32" Name="order_Id" Nullable="false" />
+          <Property Type="Int32" Name="Number_of_Items" Nullable="true" />
+          <Property Type="String" Name="order_DeliveryAddress" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Drivers_Orders_Result">
+          <Property Type="Int32" Name="order_Id" Nullable="false" />
+          <Property Type="Int32" Name="cust_Id" Nullable="false" />
+          <Property Type="Decimal" Name="totalPrice" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="order_DeliveryAddress" Nullable="false" />
+          <Property Type="String" Name="order_Status" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="order_DeliveryStatus" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbUberEatsModelStoreContainer" CdmEntityContainer="dbUberEatsEntities1">
+          <EntitySetMapping Name="tblAdmins">
+            <EntityTypeMapping TypeName="dbUberEatsModel.tblAdmin">
+              <MappingFragment StoreEntitySet="tblAdmin">
+                <ScalarProperty Name="adm_Password" ColumnName="adm_Password" />
+                <ScalarProperty Name="adm_Username" ColumnName="adm_Username" />
+                <ScalarProperty Name="adm_Email" ColumnName="adm_Email" />
+                <ScalarProperty Name="adm_Contact" ColumnName="adm_Contact" />
+                <ScalarProperty Name="adm_Lastname" ColumnName="adm_Lastname" />
+                <ScalarProperty Name="adm_Firstname" ColumnName="adm_Firstname" />
+                <ScalarProperty Name="adm_Id" ColumnName="adm_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCustomers">
+            <EntityTypeMapping TypeName="dbUberEatsModel.tblCustomer">
+              <MappingFragment StoreEntitySet="tblCustomer">
+                <ScalarProperty Name="cust_Password" ColumnName="cust_Password" />
+                <ScalarProperty Name="cust_Email" ColumnName="cust_Email" />
+                <ScalarProperty Name="cust_Cardnumber" ColumnName="cust_Cardnumber" />
+                <ScalarProperty Name="cust_Contact" ColumnName="cust_Contact" />
+                <ScalarProperty Name="cust_Lastname" ColumnName="cust_Lastname" />
+                <ScalarProperty Name="cust_Firstname" ColumnName="cust_Firstname" />
+                <ScalarProperty Name="cust_Id" ColumnName="cust_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRestuarants">
+            <EntityTypeMapping TypeName="dbUberEatsModel.tblRestuarant">
+              <MappingFragment StoreEntitySet="tblRestuarant">
+                <ScalarProperty Name="rest_Type" ColumnName="rest_Type" />
+                <ScalarProperty Name="rest_Password" ColumnName="rest_Password" />
+                <ScalarProperty Name="rest_Email" ColumnName="rest_Email" />
+                <ScalarProperty Name="rest_Manager" ColumnName="rest_Manager" />
+                <ScalarProperty Name="rest_Contact" ColumnName="rest_Contact" />
+                <ScalarProperty Name="rest_Address" ColumnName="rest_Address" />
+                <ScalarProperty Name="rest_Name" ColumnName="rest_Name" />
+                <ScalarProperty Name="rest_Id" ColumnName="rest_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProducts">
+            <EntityTypeMapping TypeName="dbUberEatsModel.tblProduct">
+              <MappingFragment StoreEntitySet="tblProduct">
+                <ScalarProperty Name="prod_Description" ColumnName="prod_Description" />
+                <ScalarProperty Name="prod_Type" ColumnName="prod_Type" />
+                <ScalarProperty Name="prod_Price" ColumnName="prod_Price" />
+                <ScalarProperty Name="prod_Name" ColumnName="prod_Name" />
+                <ScalarProperty Name="prod_Id" ColumnName="prod_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetRestuInfo" FunctionName="dbUberEatsModel.Store.GetRestuInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbUberEatsModel.GetRestuInfo_Result">
+                <ScalarProperty Name="rest_Name" ColumnName="rest_Name" />
+                <ScalarProperty Name="rest_Address" ColumnName="rest_Address" />
+                <ScalarProperty Name="rest_Type" ColumnName="rest_Type" />
+                <ScalarProperty Name="img_Image" ColumnName="img_Image" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PicRestProcedure" FunctionName="dbUberEatsModel.Store.PicRestProcedure">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbUberEatsModel.PicRestProcedure_Result">
+                <ScalarProperty Name="img_Id" ColumnName="img_Id" />
+                <ScalarProperty Name="img_Image" ColumnName="img_Image" />
+                <ScalarProperty Name="restu_Id" ColumnName="restu_Id" />
+                <ScalarProperty Name="rest_Id" ColumnName="rest_Id" />
+                <ScalarProperty Name="rest_Name" ColumnName="rest_Name" />
+                <ScalarProperty Name="rest_Address" ColumnName="rest_Address" />
+                <ScalarProperty Name="rest_Contact" ColumnName="rest_Contact" />
+                <ScalarProperty Name="rest_Manager" ColumnName="rest_Manager" />
+                <ScalarProperty Name="rest_Email" ColumnName="rest_Email" />
+                <ScalarProperty Name="rest_Password" ColumnName="rest_Password" />
+                <ScalarProperty Name="rest_Type" ColumnName="rest_Type" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tblResImages">
+            <EntityTypeMapping TypeName="dbUberEatsModel.tblResImage">
+              <MappingFragment StoreEntitySet="tblResImage">
+                <ScalarProperty Name="restu_Id" ColumnName="restu_Id" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="img_Id" ColumnName="img_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProImages">
+            <EntityTypeMapping TypeName="dbUberEatsModel.tblProImage">
+              <MappingFragment StoreEntitySet="tblProImage">
+                <ScalarProperty Name="produ_Id" ColumnName="produ_Id" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="img_Id" ColumnName="img_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetProduInfo" FunctionName="dbUberEatsModel.Store.GetProduInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbUberEatsModel.GetProduInfo_Result">
+                <ScalarProperty Name="prod_Name" ColumnName="prod_Name" />
+                <ScalarProperty Name="prod_Price" ColumnName="prod_Price" />
+                <ScalarProperty Name="prod_Type" ColumnName="prod_Type" />
+                <ScalarProperty Name="prod_Description" ColumnName="prod_Description" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PicProdProcedure" FunctionName="dbUberEatsModel.Store.PicProdProcedure">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbUberEatsModel.PicProdProcedure_Result">
+                <ScalarProperty Name="img_Id" ColumnName="img_Id" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="produ_Id" ColumnName="produ_Id" />
+                <ScalarProperty Name="prod_Id" ColumnName="prod_Id" />
+                <ScalarProperty Name="prod_Name" ColumnName="prod_Name" />
+                <ScalarProperty Name="prod_Price" ColumnName="prod_Price" />
+                <ScalarProperty Name="prod_Type" ColumnName="prod_Type" />
+                <ScalarProperty Name="prod_Description" ColumnName="prod_Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tblOrders">
+            <EntityTypeMapping TypeName="dbUberEatsModel.tblOrder">
+              <MappingFragment StoreEntitySet="tblOrder">
+                <ScalarProperty Name="order_DeliveryStatus" ColumnName="order_DeliveryStatus" />
+                <ScalarProperty Name="order_Status" ColumnName="order_Status" />
+                <ScalarProperty Name="cust_Id" ColumnName="cust_Id" />
+                <ScalarProperty Name="order_DeliveryAddress" ColumnName="order_DeliveryAddress" />
+                <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+                <ScalarProperty Name="order_Id" ColumnName="order_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPayments">
+            <EntityTypeMapping TypeName="dbUberEatsModel.tblPayment">
+              <MappingFragment StoreEntitySet="tblPayments">
+                <ScalarProperty Name="cust_Id" ColumnName="cust_Id" />
+                <ScalarProperty Name="payment_Date" ColumnName="payment_Date" />
+                <ScalarProperty Name="card_ExpYear" ColumnName="card_ExpYear" />
+                <ScalarProperty Name="card_ExpMonth" ColumnName="card_ExpMonth" />
+                <ScalarProperty Name="card_CCV" ColumnName="card_CCV" />
+                <ScalarProperty Name="card_Name" ColumnName="card_Name" />
+                <ScalarProperty Name="payment_Id" ColumnName="payment_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetAllOrders" FunctionName="dbUberEatsModel.Store.GetAllOrders">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbUberEatsModel.GetAllOrders_Result">
+                <ScalarProperty Name="order_Id" ColumnName="order_Id" />
+                <ScalarProperty Name="prod_Name" ColumnName="prod_Name" />
+                <ScalarProperty Name="prod_Description" ColumnName="prod_Description" />
+                <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+                <ScalarProperty Name="order_DeliveryAddress" ColumnName="order_DeliveryAddress" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tblOrder_Product">
+            <EntityTypeMapping TypeName="dbUberEatsModel.tblOrder_Product">
+              <MappingFragment StoreEntitySet="tblOrder_Product">
+                <ScalarProperty Name="ord_Id" ColumnName="ord_Id" />
+                <ScalarProperty Name="pro_Id" ColumnName="pro_Id" />
+                <ScalarProperty Name="op_Id" ColumnName="op_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDrivers">
+            <EntityTypeMapping TypeName="dbUberEatsModel.tblDriver">
+              <MappingFragment StoreEntitySet="tblDriver">
+                <ScalarProperty Name="drv_Password" ColumnName="drv_Password" />
+                <ScalarProperty Name="drv_Email" ColumnName="drv_Email" />
+                <ScalarProperty Name="drv_VehicleType" ColumnName="drv_VehicleType" />
+                <ScalarProperty Name="drv_Location" ColumnName="drv_Location" />
+                <ScalarProperty Name="drv_Contact" ColumnName="drv_Contact" />
+                <ScalarProperty Name="drv_Lastname" ColumnName="drv_Lastname" />
+                <ScalarProperty Name="drv_Firstname" ColumnName="drv_Firstname" />
+                <ScalarProperty Name="drv_Id" ColumnName="drv_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DriverOrders" FunctionName="dbUberEatsModel.Store.DriverOrders">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbUberEatsModel.DriverOrders_Result">
+                <ScalarProperty Name="order_Id" ColumnName="order_Id" />
+                <ScalarProperty Name="Number_of_Items" ColumnName="Number of Items" />
+                <ScalarProperty Name="order_DeliveryAddress" ColumnName="order_DeliveryAddress" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Drivers_Orders" FunctionName="dbUberEatsModel.Store.Drivers_Orders">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbUberEatsModel.Drivers_Orders_Result">
+                <ScalarProperty Name="order_Id" ColumnName="order_Id" />
+                <ScalarProperty Name="cust_Id" ColumnName="cust_Id" />
+                <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+                <ScalarProperty Name="order_DeliveryAddress" ColumnName="order_DeliveryAddress" />
+                <ScalarProperty Name="order_Status" ColumnName="order_Status" />
+                <ScalarProperty Name="order_DeliveryStatus" ColumnName="order_DeliveryStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

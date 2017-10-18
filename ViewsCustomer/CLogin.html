@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html ng-app="Signin">
+<head>
+    <title>Customer Login</title>
+    <meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+
+    <link href="../MyStyles/CLogin.css" rel="stylesheet" />   <!-- reference to my style folder -->
+
+    <script src="../services.js"></script>
+    <script src="../demos.js"></script>
+
+    <style>
+        input[type=text] {
+            width: 130px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            background-image: url('searchicon.png');
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
+
+            input[type=text]:focus {
+                width: 100%;
+            }
+    </style>
+
+
+
+</head>
+<body ng-controller="CLoginController">
+    <div class="container">
+        <div class="left"></div>
+        <div class="right">
+            <div class="formBox">
+                <form>
+                    <label>Email</label></p>
+                    <input type="email" ng-model="cust_Email" placeholder="Email" />
+                    <label>Password</label></p>
+                    <input type="password" ng-model="cust_Password" placeholder="Password" />
+                    <br />
+                    <input ng-click="CustLogin()" type="button" value="Sign In">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

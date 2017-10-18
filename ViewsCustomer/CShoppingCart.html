@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html ng-app="Signin">
+<head>
+    <title>Shopping Cart</title>
+    <meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+
+    <script src="../services.js"></script>
+    <script src="../demos.js"></script>
+
+    <!--<style>
+        table thead tr th {
+            color: #B87333;
+        }
+
+        span.text-center {
+            display: block;
+            margin-bottom: 10px;
+            color: red;
+        }
+
+        button {
+            font-size: 13px !important;
+        }
+
+            button i {
+                font-size: 15px !important;
+            }
+    </style>-->
+
+</head>
+<body ng-controller="CShoppingCartController">
+
+    <div class="class" style="background-color:cornflowerblue">
+        <img src="../Images/Shopping Cart Page.jpg" width="1265" height="270" />
+    </div>
+
+    <form>
+        <div class="col-md-12">
+            <h2>PRODUCT LIST</h2>
+            <table class="table table-hover table-striped" cellspacing="40" align="center" style="width:100%">
+                <thead class="grid-top panel">
+                    <tr>
+                        <th>NAME</th>       <!-- add image -->
+                        <th>TYPE</th>
+                        <th>DESCRIPTION</th>
+                        <th> PRICE </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="prd in Product">
+                        <td>{{prd.prod_Name}}</td>
+                        <td>{{prd.prod_Type}}</td>
+                        <td>{{prd.prod_Description}}</td>
+                        <td>{{prd.prod_Price | currency : "R"}}</td>
+                        <td>
+                            <button ng-click="addItem(prd)" class="btn-sm btn-success">Add</button>
+                        </td>
+                        <td>
+                            <button ng-click="remove($index)" ng-show="myItems.length > 0" class="btn-sm btn-danger">Remove</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        
+        <a href="#!CCheckout" ng-show="myItems.length > 0" class="pull-right alert alert-warning">Checkout</a>
+
+        <span class="pull-right alert alert-success">Total Price: {{ !totalPrice ? "0" : totalPrice | currency : "R" }}</span>
+        
+    </form>
+
+</body>
+</html>
