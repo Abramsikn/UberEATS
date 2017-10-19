@@ -288,7 +288,7 @@ Signin.controller("AUploadRestImageController", function ($scope, $location, Use
     }
 })
 
-//  restuarant upload product -logo- image   (posting image to the wrong database)
+//  restuarant upload product -logo- image
 Signin.controller("AUploadProdImageController", function ($scope, $location, UserApi, $http)
 {
     var formdata = new FormData();
@@ -417,7 +417,7 @@ Signin.controller("DLoginController", function ($scope, $http, UserApi, $rootSco
     };
 });
 
-//  restuarant login (undefined)
+//  restuarant login
 Signin.controller("RLoginController", function ($scope, $http, UserApi, $rootScope, $location, $window)
 {
     $scope.LogInUser = {
